@@ -4,8 +4,21 @@ public class Assignment {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);		//prepares program for input
 		char userInput = '\0';		//initializes input variable so it can be used in the loop
+		System.out.println("******************************");
+		System.out.println("**                          **");
+		System.out.println("**   Welcome to the DIT042  **");
+		System.out.println("**      String library      **");
+		System.out.println("**                          **");
+		System.out.println("******************************");
 		while (userInput != 'q')	//loop that allows user to keep using the program until they want to quit
 		{
+			System.out.println("Please choose a string operation or press 'q' to quit: ");
+			System.out.println("Press c for concatenation");
+			System.out.println("Press e for equals");
+			System.out.println("Press s for substring");
+			System.out.println("Press t for trim");
+			System.out.println("Press l for lastIndexOf");
+			System.out.println("Press h for contains");
 			int j;
 			String s1 = "\0";
 			String s2 = "\0";

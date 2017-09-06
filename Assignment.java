@@ -5,6 +5,9 @@ public class Assignment {
 		Scanner input = new Scanner(System.in);		//prepares program for input
 		char userInput = '\0';		//initializes input variable so it can be used in the loop
 		int j;
+		String s1 = "\0";
+		String s2 = "\0";
+		boolean check;	//initializes helper variables
 		while (userInput != 'q')	//loop that allows user to keep using the program until they want to quit
 		{
 			userInput = input.next().charAt(0);
@@ -12,26 +15,19 @@ public class Assignment {
 			{
 			case 'c':
 				System.out.println("You picked concatenation.");
-				
-				
 				System.out.println(" ");
-
-				
-			System.out.println("Please enter the first string: ");
-			String s1 = input.next();
-		
-			System.out.println("Please enter the second string: ");
-			String s2 = input.next();
-
-				
-			System.out.println( "The result of the concatenating" + " " +  s1 + " " + "and" + " "  + s2 + " " + "is:" + " " + s1 + s2 + " " );
+				System.out.println("Please enter the first string: ");
+				s1 = input.next();
+				System.out.println("Please enter the second string: ");
+				s2 = input.next();
+				System.out.println( "The result of the concatenating" + " " +  s1 + " " + "and" + " "  + s2 + " " + "is:" + " " + s1 + s2 + " " );
 			break;
 			case 'e':
 				System.out.println("You picked equals.");
-				String s1 = input.next();
-				String s2 = input.next();
+				s1 = input.next();
+				s2 = input.next();
 				j=0;
-				boolean check = false;
+				check = false;
 				if (s1.length() == s2.length())
 				{
 					while(j<s1.length())

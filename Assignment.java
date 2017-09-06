@@ -12,7 +12,20 @@ public class Assignment {
 			{
 			case 'c':
 				System.out.println("You picked concatenation.");
-				break;
+				
+				
+				System.out.println(" ");
+
+				
+			System.out.println("Please enter the first string: ");
+			String s1 = input.next();
+		
+			System.out.println("Please enter the second string: ");
+			String s2 = input.next();
+
+				
+			System.out.println( "The result of the concatenating" + " " +  s1 + " " + "and" + " "  + s2 + " " + "is:" + " " + s1 + s2 + " " );
+			break;
 			case 'e':
 				System.out.println("You picked equals.");
 				String s1 = input.next();

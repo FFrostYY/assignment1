@@ -71,6 +71,35 @@ public class Assignment {
 				break;
 			case 's':
 				System.out.println("You picked substring.");
+				System.out.println(" ");
+				
+					
+				System.out.println("Please enter the string: ");
+				System.out.println(" ");
+					
+				s1 = input.next();
+
+				 
+				System.out.println("Please enter the first index: ");
+				System.out.println(" ");
+				
+					int index1 = input.nextInt();
+
+					
+					System.out.println("Please enter the second index: ");
+ 
+					
+					int index2 = input.nextInt();
+					
+					System.out.println("The resulting substring is: ");
+
+					for (j = index1; j <= index2 ; j++) {
+							
+							s2 = s2 + s1.charAt(j);
+					
+							
+						}
+System.out.print(s2);
 				break;
 			case 't':
 				System.out.println("You picked trim.");

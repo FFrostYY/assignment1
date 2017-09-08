@@ -19,10 +19,12 @@ public class Assignment {
 			System.out.println("Press t for trim");
 			System.out.println("Press l for lastIndexOf");
 			System.out.println("Press h for contains");
+			int i;
 			int j;
 			String s1 = "\0";
 			String s2 = "\0";
-			boolean check;	//initializes helper variables
+			String s3 = "\0";
+			boolean check = false;	//initializes helper variables
 			userInput = input.nextLine().charAt(0);
 			switch (userInput)						//checks which operation input corresponds to, prints error if it doesn't
 			{
@@ -119,6 +121,49 @@ System.out.print(s2);
 				break;
 			case 'h':
 				System.out.println("You picked contains");
+				System.out.println("Please enter main string to compare to: ");
+				s1 = input.nextLine();
+				System.out.println("Please enter string to compare: ");
+				s2 = input.nextLine();
+				for (i=0; i<s1.length(); i++)
+				{
+					if (check == true)
+					{
+						break;
+					}
+					if (s1.charAt(i) == s2.charAt(0))
+					{
+						j=i;
+						while (j < s1.length() && (j-i) < s2.length())
+						{
+							if(s1.charAt(j) == s2.charAt(j-i))
+							{
+								check = true;
+								j++;
+								s3 += s2.charAt(j-i);
+							}
+							else
+							{
+								check = false;
+								break;
+							}
+							
+						}
+					}
+				}
+				if(s3 != s2)
+				{
+					check = false;
+				}
+				if(check == true)
+				{
+					System.out.println("The string " + s1 + " contains the string " + s2 + ".");
+				}
+				else
+				{
+					System.out.println("The string " + s1 + " does not contain the string " + s2 + ".");
+				}
+				
 				break;
 			case 'q':
 				break;

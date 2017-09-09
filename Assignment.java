@@ -35,7 +35,6 @@ public class Assignment {
 				System.out.println("Please enter the second string: ");
 				s2 = input.nextLine();
 				System.out.println( "The result of the concatenating" + " " +  s1 + " " + "and" + " "  + s2 + " " + "is:" + " " + s1 + s2 + " " );
-				
 			break;
 			case 'e':
 				System.out.println("You picked equals.");
@@ -80,21 +79,21 @@ public class Assignment {
 				System.out.println("Please enter the string: ");
 				System.out.println(" ");
 					
-				s1 = input.nextLine();
+				s1 = input.next();
 
 				 
 				System.out.println("Please enter the first index: ");
 				System.out.println(" ");
 				
-					int index1 = Character.getNumericValue(input.nextLine().charAt(0));
+					int index1 = input.nextInt();
 
 					
 					System.out.println("Please enter the second index: ");
  
 					
-					int index2 = Character.getNumericValue(input.nextLine().charAt(0));
+					int index2 = input.nextInt();
 					
-					System.out.print("The resulting substring is: ");
+					System.out.println("The resulting substring is: ");
 
 					for (j = index1; j <= index2 ; j++) {
 							
@@ -102,8 +101,7 @@ public class Assignment {
 					
 							
 						}
-System.out.println(s2);
-
+System.out.print(s2);
 				break;
 			case 't':
 				System.out.println("You picked trim.");
@@ -117,11 +115,41 @@ System.out.println(s2);
 					}
 				}
 				System.out.println("The trimmed string is: " + s2);
-				
 				break;
 			case 'l':
 				System.out.println("You picked lastIndexOf");
+				
+				System.out.println(" ");
+				
+				System.out.println("Please enter a string: ");
+
+				s1 = input.nextLine();
+				
+				System.out.println(" ");
+
+				System.out.println("Please enter a character: ");
+				
+				char character = input.nextLine().charAt(0);
+
+				System.out.println(" ");
+
+				System.out.println("The index of character " + character + " " +  "in " + s1 + " " + "is " );
+		
+				i = -1;
+
+				for (j = 0 ; j <s1.length() ; j++ )  { 
+			
+					
+					if (s1.charAt(j) == character) {
+					
+						i = j;
+
+						System.out.println(" ");
+				}        	               					
+			}
+				System.out.println(i);			
 				break;
+				
 			case 'h':
 				System.out.println("You picked contains");
 				System.out.println("Please enter main string to compare to: ");

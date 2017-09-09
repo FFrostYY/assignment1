@@ -1,8 +1,7 @@
-import java.util.*;
+import static dit042.SimpleIO.*;
 public class Assignment {
 
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);		//prepares program for input
 		char userInput = '\0';		//initializes input variable so it can be used in the loop
 		System.out.println("******************************");
 		System.out.println("**                          **");
@@ -22,38 +21,43 @@ public class Assignment {
 			int i;
 			int j;
 			String s1 = "\0";
-			String s2 = "\0";
-			String s3 = "\0";
-			boolean check = false;	//initializes helper variables
-			userInput = input.nextLine().charAt(0);
-			switch (userInput)						//checks which operation input corresponds to, prints error if it doesn't
+			String s2 = "";
+			String s3 = "";
+			boolean check = false;		//initializes helper variables
+			userInput = readChar();
+			switch (userInput)			//checks which operation input corresponds to, prints error if it doesn't
 			{
 			case 'c':
 				System.out.println("You picked concatenation.");
 				System.out.println("Please enter the first string: ");
-				s1 = input.nextLine();
+				s1 = readLine();
 				System.out.println("Please enter the second string: ");
-				s2 = input.nextLine();
-				System.out.println( "The result of the concatenating" + " " +  s1 + " " + "and" + " "  + s2 + " " + "is:" + " " + s1 + s2 + " " );
+				s2 = readLine();	//handles user input
+				s3 = s1;			//prepares result string to handle concatenated string
+				for(i=0; i<s2.length(); i++)
+				{
+					s3 += s2.charAt(i);		//loop adds s2 to final string, character by character
+				}
+				System.out.println( "The result of the concatenating " +  s1 + " and "  + s2 + " is: "+ s3 + "." );
 			break;
 			case 'e':
 				System.out.println("You picked equals.");
 				System.out.println("Please enter the first string: ");
-				s1 = input.nextLine();
+				s1 = readLine();
 				System.out.println("Please enter the second string: ");
-				s2 = input.nextLine();
-				j=0;
+				s2 = readLine();
+				j=0;			//resets counter for loop to 0
 				check = false;
-				if (s1.length() == s2.length())
+				if (s1.length() == s2.length())		//first check if strings are even the same length to save time
 				{
-					while(j<s1.length())
+					while(j<s1.length())			//goes through entire string, lengths are equal so only 1 var is used
 					{
-						if(s1.charAt(j) == s2.charAt(j))
+						if(s1.charAt(j) == s2.charAt(j))		//checks if each character is equal, continues loop if true
 						{
 							j++;
 							check = true;
 						}
-						else
+						else							//breaks loop if inequality is found
 						{
 							check = false;
 							break;
@@ -74,40 +78,32 @@ public class Assignment {
 			case 's':
 				System.out.println("You picked substring.");
 				System.out.println(" ");
-				
-					
 				System.out.println("Please enter the string: ");
 				System.out.println(" ");
 					
-				s1 = input.next();
+				s1 = readLine();
 
-				 
 				System.out.println("Please enter the first index: ");
 				System.out.println(" ");
 				
-					int index1 = input.nextInt();
-
-					
-					System.out.println("Please enter the second index: ");
+				int index1 = readInt();
+			
+				System.out.println("Please enter the second index: ");
  
+				int index2 = readInt();
 					
-					int index2 = input.nextInt();
-					
-					System.out.println("The resulting substring is: ");
-
-					for (j = index1; j <= index2 ; j++) {
-							
-							s2 = s2 + s1.charAt(j);
-					
-							
-						}
-System.out.print(s2);
+				System.out.println("The resulting substring is: ");
+				for (j = index1; j <= index2 ; j++) //for loop adds each character between user inputed indexes to final string
+				{
+					s2 = s2 + s1.charAt(j);								
+				}
+				System.out.println(s2);
 				break;
 			case 't':
 				System.out.println("You picked trim.");
 				System.out.println("Please enter a string to trim: ");
-				s1 = input.nextLine();
-				for(j=0; j < s1.length(); j++)
+				s1 = readLine();
+				for(j=0; j < s1.length(); j++)		//for loop goes through original string, adds each non-space to an empty string
 				{
 					if (s1.charAt(j) != ' ')
 					{
@@ -123,68 +119,83 @@ System.out.print(s2);
 				
 				System.out.println("Please enter a string: ");
 
-				s1 = input.nextLine();
+				s1 = readLine();
 				
 				System.out.println(" ");
 
 				System.out.println("Please enter a character: ");
 				
-				char character = input.nextLine().charAt(0);
+				char character = readChar();
 
 				System.out.println(" ");
 
-				System.out.println("The index of character " + character + " " +  "in " + s1 + " " + "is " );
+				System.out.println("The index of character " + character  +  " in " + s1 + " is " );
 		
-				i = -1;
+				i = -1;		//sets index variable in case no matching character is found
 
-				for (j = 0 ; j <s1.length() ; j++ )  { 
-			
-					
-					if (s1.charAt(j) == character) {
-					
-						i = j;
-
-						System.out.println(" ");
-				}        	               					
-			}
+				for (j = 0 ; j <s1.length() ; j++ )  //loop checks each index for the inputted character
+				{ 	
+					if (s1.charAt(j) == character) 	//sets solution variable to index counter if character is found
+					{	
+							i = j;
+					}        	               					
+				}
 				System.out.println(i);			
 				break;
 				
 			case 'h':
 				System.out.println("You picked contains");
 				System.out.println("Please enter main string to compare to: ");
-				s1 = input.nextLine();
+				s1 = readLine();
 				System.out.println("Please enter string to compare: ");
-				s2 = input.nextLine();
+				s2 = readLine();
 				for (i=0; i<s1.length(); i++)
 				{
-					if (check == true)
+					if (check == true)		//checks if string is contained, stops processing if it is
 					{
 						break;
 					}
-					if (s1.charAt(i) == s2.charAt(0))
+					if (s1.charAt(i) == s2.charAt(0))	//checks if first character of 2nd string is found to begin processing
 					{
 						j=i;
-						while (j < s1.length() && (j-i) < s2.length())
+						while (j < s1.length() && (j-i) < s2.length())		//keeps loop within bounds, checks both strings parallel to each other
 						{
-							if(s1.charAt(j) == s2.charAt(j-i))
+							if (s3 == s2)									//stops loop if containment is established
+							{
+								break;
+							}
+							if(s1.charAt(j) == s2.charAt(j-i))				//if 2 characters are equal, adds character to solution string and continues
 							{
 								check = true;
-								j++;
 								s3 += s2.charAt(j-i);
+								j++;
 							}
-							else
+							else											//if inequality is found, empties solution string and breaks loop
 							{
 								check = false;
+								s3 = "";
 								break;
 							}
 							
 						}
 					}
 				}
-				if(s3 != s2)
-				{
-					check = false;
+				if (s3.length() == s2.length())			//check if solution string is equal to input string
+				{										//uses algorithm from previous option instead of .isEqual()
+					j=0;	
+					while(j<s3.length())
+					{
+						if(s3.charAt(j) == s2.charAt(j))
+						{
+							j++;
+							check = true;
+						}
+						else
+						{
+							check = false;
+							break;
+						}
+					}
 				}
 				if(check == true)
 				{
@@ -196,14 +207,14 @@ System.out.print(s2);
 				}
 				
 				break;
-			case 'q':
+			case 'q':		//quits program
 				break;
-			default:
+			default:		//error in case of invalid input
 				System.out.println("Invalid option");
 				break;
 			}
 		}
-		System.out.println("Goodbye");
+		System.out.println("Thanks! Goodbye.");
 	}
 
 }
